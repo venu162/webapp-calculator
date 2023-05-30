@@ -3,15 +3,13 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/rchidana/calcwebapp.git'    
-		            echo "Code Checked-out Successfully!!";
+                git url: 'https://github.com/rchidana/calcwebapp.git'
             }
         }
         
         stage('Package') {
             steps {
-                bat 'mvn package'    
-		            echo "Maven Package Goal Executed Successfully!";
+                sh 'mvn package'
             }
         }
     }
