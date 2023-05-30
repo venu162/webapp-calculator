@@ -17,7 +17,7 @@ pipeline {
             steps {
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
-                    serverId: "jfrog_143",
+                    serverId: "JFROG_143",
                     releaseRepo: 'venu-libs-release-local',
                      snapshotRepo: 'venu-libs-snapshot-local'
                 ) 
@@ -36,7 +36,7 @@ pipeline {
         stage ('Publish build info') {
             steps {
                 rtPublishBuildInfo (
-                    serverId: "jfrog_143"
+                    serverId: "JFROG_143"
                 )
             }
         }
