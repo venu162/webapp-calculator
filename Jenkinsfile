@@ -1,15 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('Git Checkout') {
+        stage('continuous-download') {
             steps {
                 git url: 'https://github.com/rchidana/calcwebapp.git'
+                branch: 'master'
             }
         }
         
-        stage('Package') {
+        stage('continuous-build') {
             steps {
                 sh 'mvn package'
+            }
+        }
+        stage('sonarqube'){
+            steps{
+             withSonarQubeEnv('sonar-qube') {
+              sh 'mvn package sonar:sonar'
             }
         }
     }
