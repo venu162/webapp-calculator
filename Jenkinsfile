@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+     agent any
     stages {
         stage('continuous-download') {
             steps {
@@ -8,11 +8,6 @@ pipeline {
             }
         }
         
-        stage('continuous-build') {
-            steps {
-                sh 'mvn package'
-            }
-        }
         stage('sonarqube'){
             steps{
              withSonarQubeEnv('sonar-qube') {
